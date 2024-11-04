@@ -17,7 +17,7 @@ docker push your-docker-repo/frontend-microservice:1.0.0
 ## Desplegar micro en Kubernetes
 
 ```
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
-kubectl apply -f ingress.yaml
+kubectl apply -f K8s/deployment.yaml
+kubectl apply -f K8s/service.yaml
+kubectl apply -f K8s/ingress.yaml
 ```

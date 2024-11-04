@@ -32,7 +32,7 @@ func handleColor(path string) http.HandlerFunc {
                 <title>Color Page</title>
             </head>
             <body style="background-color: {{.Color}};">
-                <h1>The background color is {{.Color}}</h1>
+                <h1>El color de fondo es {{.Color}}</h1>
             </body>
             </html>
         `))
