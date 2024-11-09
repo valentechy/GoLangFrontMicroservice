@@ -1,13 +1,14 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 )
 
-const backendURL = "http://backend-service"
+const backendURL = "http://localhost:8081"
 
 func main() {
 	http.HandleFunc("/primario", handleColor("primario"))
@@ -21,6 +22,8 @@ func handleColor(path string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		color, err := fetchColor(path)
 		if err != nil {
+			println(err)
+			println("Entro aquí")
 			http.Error(w, "Error fetching color", http.StatusInternalServerError)
 			return
 		}
@@ -48,11 +51,13 @@ func fetchColor(path string) (string, error) {
 	}
 	defer resp.Body.Close()
 
-	var color string
-	_, err = fmt.Fscanf(resp.Body, "%s", &color)
+	var result struct {
+		Color string `json:"color"`
+	}
+	err = json.NewDecoder(resp.Body).Decode(&result)
 	if err != nil {
 		return "", err
 	}
 
-	return color, nil
+	return result.Color, nil
 }
