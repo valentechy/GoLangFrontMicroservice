@@ -1,6 +1,6 @@
 # GoLangFrontMicroservice
 
-Microservicio de prueba utilizado para artículo en [www.valentinpalacios.com](https://valentinpalacios.com/post/plataforma-microservicios-erramientas-cncf-parte1-base/)
+Microservicio de prueba utilizado para artículo en [www.valentinpalacios.com](https://valentinpalacios.com/post/plataforma-microservicios-herramientas-cncf-parte1-base/)
 
 Este microservicio está escrito en GoLang y actúa como un frontend que recibe peticiones en dos rutas (`/primario` y `/secundario`). Cada ruta llama a un [backend](https://github.com/valentechy/GoLangBackMicroservice/tree/1.0.0) que devuelve un color en formato JSON, y el frontend muestra una página web sencilla con el color de fondo especificado.
 
